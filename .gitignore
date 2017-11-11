@@ -2,4 +2,4 @@
 yarn.lock
 package-lock.json
 mix-manifest.json
-*.node.js
+*.dist.js

@@ -1,3 +1,2 @@
 const mix = require('laravel-mix');
-
-mix.js('server.js', 'server.node.js');
+mix.js('tests/lib.js', 'tests/lib.dist.js');

@@ -1,4 +1,4 @@
-import Partie from '../contracts/Partie'
+import P from '../contracts/Partie'
 class Partie extends Partie{
 
 }
