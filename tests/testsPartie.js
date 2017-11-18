@@ -63,4 +63,13 @@ describe('Test Partie', function() {
         expect(partie.joueurActuel).toBeNull();
     })
 
+    it('La couleur suivante est retournée', function() {
+        const partie = new Partie();
+
+        expect(partie._couleurSuivante(Couleur.Jaune)).toBe(Couleur.Rouge);
+        expect(partie._couleurSuivante(Couleur.Rouge)).toBe(Couleur.Vert);
+        expect(partie._couleurSuivante(Couleur.Vert)).toBe(Couleur.Bleu);
+        expect(partie._couleurSuivante(Couleur.Bleu)).toBe(Couleur.Jaune);
+    });
+
 });

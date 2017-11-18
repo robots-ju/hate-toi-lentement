@@ -58,6 +58,19 @@ export default class Partie extends ContratPartie {
         this.valeurDe = Math.floor(Math.random() * NOMBRE_VALEURS_DE) + 1;
     }
 
+    _couleurSuivante(couleur) {
+        const ordreCouleurs = [
+            Couleur.Jaune,
+            Couleur.Rouge,
+            Couleur.Vert,
+            Couleur.Bleu,
+        ];
+
+        const index = ordreCouleurs.indexOf(couleur);
+
+        return ordreCouleurs[(index + 1) % ordreCouleurs.length];
+    }
+
     confirmerAvoirJoue(){
         if(this.aJoue){
             this._passeAuProchainJoueur();
