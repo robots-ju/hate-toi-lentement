@@ -21,7 +21,7 @@ export default class Partie extends ContratPartie {
                     return {
                         type: TypeCase[keyTypeCase],
                         cases: (() => {
-                            switch (TypeCase[typeCase]) {
+                            switch (keyTypeCase[TypeCase]) {
                                 case TypeCase.Depart:
                                     return (new Array(NOMBRE_CASES_DEPART)).fill(couleur);
                                 case TypeCase.Arrivee:
