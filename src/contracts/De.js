@@ -1,4 +1,4 @@
-export default De {
+export default class De {
     deDeSix(){
         throw 'Non implémenté';
     }
