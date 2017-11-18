@@ -60,12 +60,22 @@ export default class Partie extends ContratPartie {
 
     confirmerAvoirJoue(){
         if(this.aJoue){
-            this._passeAuProchainJoueur()
-            this.aJoue=false
+            this._passeAuProchainJoueur();
+            this.aJoue=false;
+        }else{
+            throw "pas encore joué";
         }
     }
 
     numeroDe(){
-        return this.valeurDe
+        return this.valeurDe;
+    }
+
+    joueurActuel(){
+        return this.couleursJoueurs[this.indexJoueurActuel]
+    }
+
+    contenuCase(emplacement){
+        return this.plateau[emplacement.quadrant][emplacement.type][emplacement.numeroCase]
     }
 }
