@@ -1,6 +1,9 @@
-class De {
-    lancer(){
-        return Math.floor(Math.random() * 4) + 1  
+export default De {
+    deDeSix(){
+        throw 'Non implémenté';
+    }
+    selectionnerJouers(nombreJoueurs){
+        throw 'Non implémenté';
     }
 }
 /*
