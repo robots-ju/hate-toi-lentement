@@ -1,9 +1,14 @@
 export default class Joueur {
     /**
-     * @param Partie partie
      * @param Couleur couleur
      */
-    constructor(partie, couleur) {
+    constructor(couleur) {
+        throw 'Non implémenté';
+    }
+    /**
+     * @param Partie partie
+     */
+    debutPartie(partie) {
         throw 'Non implémenté';
     }
     /**

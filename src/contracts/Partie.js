@@ -51,4 +51,11 @@ export default class Partie {
     casesPion(couleur) {
         throw 'Non implémenté';
     }
+    /**
+     * @param Joueur joueur
+     * @returns void
+     */
+    ajouterJoueur(joueur) {
+        throw 'Non implémenté';
+    }
 }
