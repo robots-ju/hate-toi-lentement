@@ -10,6 +10,8 @@ const NOMBRE_VALEURS_DE = 6;
 
 class Partie extends ContratPartie {
     constructor() {
+        super();
+
         // L'état de la partie est stocké dans un tableau tridimensionnel
         // les cases contiennent la référence `Couleur` du pion ou `null` si vide
         this.plateau = Object.keys(Couleur).map(couleur => {
