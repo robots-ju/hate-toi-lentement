@@ -26,6 +26,7 @@ module.exports = function(config) {
     */
     files: [
         {pattern: 'tests/testsPartie.js', watched: false},
+        {pattern: 'tests/testsDe.js', watched: false},
     ],
 
     // list of files to exclude
@@ -80,7 +81,9 @@ module.exports = function(config) {
 
     preprocessors: {
         'partie/Partie.js': ['webpack', 'babel'],
-        'tests/testsPartie.js': ['babel', 'webpack']
+        'tests/testsPartie.js': ['babel', 'webpack'],
+        'partie/De.js': ['webpack', 'babel'],
+        'tests/testsDe.js': ['babel', 'webpack'],
     },
   })
 }
