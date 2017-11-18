@@ -8,7 +8,7 @@ const NOMBRE_CASES_ARRIVEE = 8;
 const NOMBRE_CASES_STANDARD = 17;
 const NOMBRE_VALEURS_DE = 6;
 
-class Partie extends ContratPartie {
+export default class Partie extends ContratPartie {
     constructor() {
         super();
 
