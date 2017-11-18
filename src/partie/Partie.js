@@ -42,6 +42,7 @@ export default class Partie extends ContratPartie {
 
         this.valeurDe = null;
         this.indexJoueurActuel = null;
+        this.aJoue = false
 
         this._passeAuProchainJoueur();
     }
@@ -55,5 +56,16 @@ export default class Partie extends ContratPartie {
 
         // Valeur de 1 à NOMBRE_VALEURS_DE
         this.valeurDe = Math.floor(Math.random() * NOMBRE_VALEURS_DE) + 1;
+    }
+
+    confirmerAvoirJoue(){
+        if(this.aJoue){
+            this._passeAuProchainJoueur()
+            this.aJoue=false
+        }
+    }
+
+    numeroDe(){
+        return this.valeurDe
     }
 }
