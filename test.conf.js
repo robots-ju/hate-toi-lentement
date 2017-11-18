@@ -1,6 +1,10 @@
 // Karma configuration
 // Generated on Sat Nov 11 2017 16:10:56 GMT+0100 (CET)
 
+
+var webpackConf = require('./node_modules/laravel-mix/setup/webpack.config.js');
+delete webpackConf.entry
+
 module.exports = function(config) {
   config.set({
 
@@ -14,11 +18,15 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
+    /*
     files: [
       'tests/lib.dist.js',
       'tests/testsPartie.js'
     ],
-
+    */
+    files: [
+        {pattern: 'tests/testsPartie.js', watched: false},
+    ],
 
     // list of files to exclude
     exclude: [
@@ -27,9 +35,12 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
 
+    webpackMiddleware: {
+        noInfo: true,
+        stats: 'errors-only'
+    },
+    webpack: webpackConf,
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -57,7 +68,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['Firefox'],
-
+    reporters: ['progress'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -65,6 +76,11 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    preprocessors: {
+        'partie/Partie.js': ['webpack', 'babel'],
+        'tests/testsPartie.js': ['babel', 'webpack']
+    },
   })
 }
