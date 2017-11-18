@@ -14,17 +14,25 @@ export default class Partie extends ContratPartie {
 
         // L'état de la partie est stocké dans un tableau tridimensionnel
         // les cases contiennent la référence `Couleur` du pion ou `null` si vide
-        this.plateau = Object.keys(Couleur).map(couleur => {
-            return Object.keys(TypeCase).map(typeCase => {
-                switch (typeCase) {
-                    case TypeCase.Depart:
-                        return (new Array(NOMBRE_CASES_DEPART)).fill(couleur);
-                    case TypeCase.Arrivee:
-                        return (new Array(NOMBRE_CASES_ARRIVEE)).fill(null);
-                    case TypeCase.Case:
-                        return (new Array(NOMBRE_CASES_STANDARD)).fill(null);
-                }
-            });
+        this.plateau = Object.keys(Couleur).map(keyCouleur => {
+            return {
+                couleur: Couleur[keyCouleur],
+                types: Object.keys(TypeCase).map(keyTypeCase => {
+                    return {
+                        type: TypeCase[keyTypeCase],
+                        cases: (() => {
+                            switch (TypeCase[typeCase]) {
+                                case TypeCase.Depart:
+                                    return (new Array(NOMBRE_CASES_DEPART)).fill(couleur);
+                                case TypeCase.Arrivee:
+                                    return (new Array(NOMBRE_CASES_ARRIVEE)).fill(null);
+                                case TypeCase.Case:
+                                    return (new Array(NOMBRE_CASES_STANDARD)).fill(null);
+                            }
+                        })(),
+                    };
+                }),
+            };
         });
 
         this.couleursJoueurs = [
@@ -35,10 +43,10 @@ export default class Partie extends ContratPartie {
         this.valeurDe = null;
         this.indexJoueurActuel = null;
 
-        this.passeAuProchainJoueur();
+        this._passeAuProchainJoueur();
     }
 
-    passeAuProchainJoueur() {
+    _passeAuProchainJoueur() {
         if (this.indexJoueurActuel === null) {
             this.indexJoueurActuel = 0;
         } else {
