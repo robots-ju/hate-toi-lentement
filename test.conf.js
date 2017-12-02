@@ -18,15 +18,8 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    /*
     files: [
-      'tests/lib.dist.js',
-      'tests/testsPartie.js'
-    ],
-    */
-    files: [
-        {pattern: 'tests/testsPartie.js', watched: false},
-        {pattern: 'tests/testsDe.js', watched: false},
+      'tests/test*.js',
     ],
 
     // list of files to exclude
