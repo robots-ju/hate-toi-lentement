@@ -72,4 +72,9 @@ describe('Test Partie', function() {
         expect(partie._couleurSuivante(Couleur.Bleu)).toBe(Couleur.Jaune);
     });
 
+    it('Personne ne doit avoir gagné au début d\'une partie', function(){
+        const partie = new Partie();
+
+        expect(partie.joueurGagnant()).toBeNull();
+    });
 });

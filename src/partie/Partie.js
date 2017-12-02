@@ -91,4 +91,8 @@ export default class Partie extends ContratPartie {
     contenuCase(emplacement){
         return this.plateau[emplacement.quadrant][emplacement.type][emplacement.numeroCase]
     }
+
+    joueurGagnant() {
+        return null;
+    }
 }
