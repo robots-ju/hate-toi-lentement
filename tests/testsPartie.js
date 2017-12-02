@@ -2,8 +2,27 @@ import Case from '../src/contracts/Case'
 import Couleur from '../src/contracts/Couleur'
 import TypeCase from '../src/contracts/TypeCase'
 import Partie from '../src/partie/Partie'
+import JoueurQuiFaitRien from '../src/joueurs/JoueurQuiFaitRien';
 
 describe('Test Partie', function() {
+    describe('Format données', function() {
+        it('joueurs() est un objet clé-valeurs couleur-joueur', function() {
+            const partie = new Partie();
+            const joueursDebut = partie.joueurs();
+
+            expect(typeof joueursDebut).toEqual('object');
+            expect(Object.keys(joueursDebut).length).toEqual(0);
+
+            partie.ajouterJoueur(Couleur.Jaune, new JoueurQuiFaitRien());
+            const joueursPartie = partie.joueurs();
+
+            expect(typeof joueursPartie).toEqual('object');
+            expect(Object.keys(joueursPartie).length).toEqual(1);
+            expect(Object.keys(joueursPartie)[0]).toEqual(Couleur.Jaune);
+            expect(joueursPartie[Couleur.Jaune] instanceof JoueurQuiFaitRien).toBeTruthy();
+        });
+    });
+
     it('Une partie peut être créée', function() {
         const partie = new Partie();
         expect(partie).toBeDefined();
