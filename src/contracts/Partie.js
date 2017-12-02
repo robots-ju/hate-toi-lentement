@@ -52,10 +52,35 @@ export default class Partie {
         throw 'Non implémenté';
     }
     /**
+     * @param Couleur couleur
      * @param Joueur joueur
      * @returns void
      */
-    ajouterJoueur(joueur) {
+    ajouterJoueur(couleur, joueur) {
+        throw 'Non implémenté';
+    }
+    /**
+     * @returns object Couleur => Joueur
+     */
+    joueurs() {
+        throw 'Non implémenté';
+    }
+    /**
+     * @returns object
+     */
+    exporterEtat() {
+        throw 'Non implémenté';
+    }
+    /**
+     * @returns object
+     */
+    importerEtat() {
+        throw 'Non implémenté';
+    }
+    /**
+     * @returns void
+     */
+    commencerJeu() {
         throw 'Non implémenté';
     }
 }
